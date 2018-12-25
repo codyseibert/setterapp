@@ -1,5 +1,5 @@
-const Route = require('../models/route.model');
+const Route = require("../models/route.model");
 
-module.exports = (route) => {
+module.exports = route => {
   return Route.create(route);
-}
+};

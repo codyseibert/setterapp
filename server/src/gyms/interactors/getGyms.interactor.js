@@ -1,5 +1,5 @@
-const getGyms = require('../persistence/getGyms.persistence');
+const getGyms = require("../persistence/getGyms.persistence");
 
-module.exports = (gym) => {
+module.exports = () => {
   return getGyms();
-}
+};

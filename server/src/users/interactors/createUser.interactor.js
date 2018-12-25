@@ -1,5 +1,5 @@
-const createUser = require('../persistence/createUser.persistence');
+const createUser = require("../persistence/createUser.persistence");
 
-module.exports = (user) => {
+module.exports = user => {
   return createUser(user);
-}
+};

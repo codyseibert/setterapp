@@ -1,5 +1,5 @@
-const createGym = require('../persistence/createGym.persistence');
+const createGym = require("../persistence/createGym.persistence");
 
-module.exports = (gym) => {
+module.exports = gym => {
   return createGym(gym);
-}
+};

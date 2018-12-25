@@ -1,5 +1,5 @@
-const createRoute = require('../persistence/createRoute.persistence');
+const createRoute = require("../persistence/createRoute.persistence");
 
-module.exports = (route) => {
+module.exports = route => {
   return createRoute(route);
-}
+};

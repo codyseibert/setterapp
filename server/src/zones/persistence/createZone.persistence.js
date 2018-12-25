@@ -1,5 +1,5 @@
-const Zone = require('../models/zone.model');
+const Zone = require("../models/zone.model");
 
-module.exports = (zone) => {
+module.exports = zone => {
   return Zone.create(zone);
-}
+};

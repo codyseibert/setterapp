@@ -1,7 +1,7 @@
-const Zone = require('../models/zone.model');
+const Zone = require("../models/zone.model");
 
-module.exports = (query) => {
+module.exports = query => {
   return Zone.findAll({
     where: query
   });
-}
+};

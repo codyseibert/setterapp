@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('database', 'root', '123456', {
-  host: 'localhost',
-  dialect: process.env.NODE_ENV === 'production' ? 'postgres' : 'sqlite',
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize("database", "root", "123456", {
+  host: "localhost",
+  dialect: process.env.NODE_ENV === "production" ? "postgres" : "sqlite",
   operatorsAliases: false,
   pool: {
     max: 5,
@@ -11,6 +11,6 @@ const sequelize = new Sequelize('database', 'root', '123456', {
   },
 
   // SQLite only
-  storage: './database.sqlite'
+  storage: "./database.sqlite"
 });
 module.exports = sequelize;

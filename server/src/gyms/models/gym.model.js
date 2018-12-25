@@ -1,11 +1,11 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../../sequelize');
-const Zone = require('../../zones/models/zone.model')
+const Sequelize = require("sequelize");
+const sequelize = require("../../sequelize");
+const Zone = require("../../zones/models/zone.model");
 
-const Gym = sequelize.define('gym', {
+const Gym = sequelize.define("gym", {
   name: {
     type: Sequelize.STRING
-  },
+  }
 });
 
 Gym.hasMany(Zone);

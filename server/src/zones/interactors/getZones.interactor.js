@@ -1,5 +1,5 @@
-const getZones = require('../persistence/getZones.persistence');
+const getZones = require("../persistence/getZones.persistence");
 
-module.exports = (query) => {
+module.exports = query => {
   return getZones(query);
-}
+};

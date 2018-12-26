@@ -18,7 +18,7 @@ const RegisterGym = props => (
               className="form-control"
               id="gymName"
               placeholder="Your Gym Name"
-              value={props.form.name || ""}
+              value={props.form.gymName || ""}
               onChange={props.setFormKey}
             />
           </div>

@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import formReducer from "./form.reducer";
+import userReducer from "./user.reducer";
 import { connectRouter } from "connected-react-router";
 
 export default history =>
   combineReducers({
     router: connectRouter(history),
-    form: formReducer
+    form: formReducer,
+    user: userReducer
   });

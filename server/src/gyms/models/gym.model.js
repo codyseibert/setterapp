@@ -5,6 +5,9 @@ const Zone = require("../../zones/models/zone.model");
 const Gym = sequelize.define("gym", {
   name: {
     type: Sequelize.STRING
+  },
+  adminCode: {
+    type: Sequelize.STRING
   }
 });
 

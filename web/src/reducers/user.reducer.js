@@ -1,11 +1,8 @@
-export default (state = {}, action) => {
+export default (user = null, action) => {
   switch (action.type) {
     case "SET_USER":
-      return {
-        ...state,
-        ...action.payload
-      };
+      return action.payload;
     default:
-      return state;
+      return user;
   }
 };

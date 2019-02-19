@@ -7,7 +7,7 @@ const Register = props => (
       <div className="col-sm">
         <h1>Want to Track Sends?</h1>
         <button
-          className="btn btn-outline-secondary"
+          className="btn btn-secondary"
           onClick={() => props.history.push("/register/climber")}
         >
           Climber Registration
@@ -16,8 +16,11 @@ const Register = props => (
       <div className="col-sm">
         <h1>Want to Manage Routes?</h1>
         <button
-          className="btn btn-outline-info"
-          onClick={() => props.history.push("/register/gym")}
+          className="btn btn-info"
+          onClick={event => {
+            props.history.push("/register/gym");
+            event.preventDefault();
+          }}
         >
           Gym Registration
         </button>

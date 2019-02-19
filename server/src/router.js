@@ -1,5 +1,6 @@
 module.exports = app => {
   app.get("/v1/gyms", require("./gyms/routes/getGyms.route"));
+  app.get("/v1/gyms/:gymId", require("./gyms/routes/getGym.route"));
   app.post("/v1/gyms", require("./gyms/routes/createGyms.route"));
 
   app.post("/v1/users", require("./users/routes/createUser.route"));

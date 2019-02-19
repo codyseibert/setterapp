@@ -19,7 +19,7 @@ module.exports = () => {
   });
 
   createUser({
-    email: "testing@gmail.com",
+    email: "testing@example.com",
     password: "123456"
   });
 };

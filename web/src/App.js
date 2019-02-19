@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 const App = ({ history }) => {
   return (
     <div>
-      <Navbar />
+      <Navbar history={history} />
       <div className="container">
         <ConnectedRouter history={history}>{routes}</ConnectedRouter>
       </div>

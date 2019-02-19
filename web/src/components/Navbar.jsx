@@ -1,9 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import signout from "../actions/signout.action";
 
-const Register = props => (
+const Navbar = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="#">
-      Navbar
+      Setter
     </a>
     <button
       className="navbar-toggler"
@@ -24,55 +27,55 @@ const Register = props => (
             Home <span className="sr-only">(current)</span>
           </a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link
-          </a>
-        </li>
-        <li className="nav-item dropdown">
-          <a
-            className="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Dropdown
-          </a>
-          <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-            <div className="dropdown-divider" />
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </div>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" href="#">
-            Disabled
-          </a>
-        </li>
       </ul>
-      <form className="form-inline my-2 my-lg-0">
-        <input
-          className="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
+      {!props.token && (
+        <button
+          className="btn btn-outline-primary mr-2"
+          onClick={() => props.history.push("/login")}
+        >
+          Login
         </button>
-      </form>
+      )}
+
+      {props.token && (
+        <button
+          className="btn btn-outline-secondary mr-2"
+          onClick={props.signout}
+        >
+          Sign Out
+        </button>
+      )}
+
+      {!props.token && (
+        <button
+          className="btn btn-primary"
+          onClick={() => props.history.push("/register")}
+        >
+          Sign Up
+        </button>
+      )}
     </div>
   </nav>
 );
 
-export default Register;
+Navbar.propTypes = {
+  history: PropTypes.object.isRequired,
+  token: PropTypes.string,
+  signout: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  token: state.token
+});
+
+const mapDispatchToProps = dispatch => ({
+  signout: event => {
+    dispatch(signout());
+    event.preventDefault();
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);

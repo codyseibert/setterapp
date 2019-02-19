@@ -9,11 +9,22 @@ import App from "./App";
 import rootReducer from "./reducers/rootReducer";
 import history from "./history";
 
+const getInitialState = () => {
+  const user = JSON.parse(window.localStorage.getItem("user"));
+  const token = JSON.parse(window.localStorage.getItem("token"));
+  return {
+    gym: {},
+    user,
+    token
+  };
+};
+
 /* eslint-disable no-underscore-dangle */
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 /* eslint-enable */
 const store = createStore(
   rootReducer(history),
+  getInitialState(),
   composeEnhancer(applyMiddleware(thunk, routerMiddleware(history)))
 );
 

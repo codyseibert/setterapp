@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../../sequelize");
-const Route = require("../../routes/models/route.model");
+// const Route = require("../../routes/models/route.model");
 
 const Zone = sequelize.define("zone", {
   name: {
@@ -8,6 +8,6 @@ const Zone = sequelize.define("zone", {
   }
 });
 
-Zone.hasMany(Route);
+// Zone.hasMany(Route);
 
 module.exports = Zone;

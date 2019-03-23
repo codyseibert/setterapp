@@ -5,7 +5,7 @@ import Login from "../components/Login";
 import Landing from "../components/Landing";
 import RegisterGym from "../components/RegisterGym";
 import RegisterClimber from "../components/RegisterClimber";
-import Gym from "../components/Gym";
+import Gym from "../components/Gym/Gym";
 
 const routes = (
   <div>

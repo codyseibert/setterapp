@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import getGym from "../actions/getGym.action";
+import getGym from "../../actions/getGym.action";
 import { connect } from "react-redux";
 
 class Dashboard extends React.Component {

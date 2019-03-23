@@ -3,6 +3,7 @@ import formReducer from "./form.reducer";
 import userReducer from "./user.reducer";
 import gymReducer from "./gym.reducer";
 import tokenReducer from "./token.reducer";
+import routesReducer from "./routes.reducer";
 import { connectRouter } from "connected-react-router";
 
 export default history =>
@@ -11,5 +12,6 @@ export default history =>
     form: formReducer,
     user: userReducer,
     gym: gymReducer,
-    token: tokenReducer
+    token: tokenReducer,
+    routes: routesReducer
   });

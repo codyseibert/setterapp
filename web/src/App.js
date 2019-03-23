@@ -8,7 +8,7 @@ const App = ({ history }) => {
   return (
     <div>
       <Navbar history={history} />
-      <div className="container">
+      <div className="container-fluid">
         <ConnectedRouter history={history}>{routes}</ConnectedRouter>
       </div>
     </div>

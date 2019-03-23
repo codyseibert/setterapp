@@ -14,6 +14,7 @@ const getInitialState = () => {
   const token = JSON.parse(window.localStorage.getItem("token"));
   return {
     gym: {},
+    routes: [],
     user,
     token
   };

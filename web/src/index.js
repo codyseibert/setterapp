@@ -17,10 +17,22 @@ import {
   faHome,
   faTh,
   faRoute,
-  faUsers
+  faUsers,
+  faSignOutAlt,
+  faSearch
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faIgloo, faSync, faSpinner, faHome, faTh, faRoute, faUsers);
+library.add(
+  faIgloo,
+  faSync,
+  faSpinner,
+  faHome,
+  faTh,
+  faRoute,
+  faUsers,
+  faSignOutAlt,
+  faSearch
+);
 
 const getInitialState = () => {
   const user = JSON.parse(window.localStorage.getItem("user"));

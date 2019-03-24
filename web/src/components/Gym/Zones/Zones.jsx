@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import getZones from "../../../actions/getZones.action";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router";

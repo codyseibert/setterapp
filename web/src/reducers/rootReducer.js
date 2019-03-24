@@ -8,6 +8,13 @@ import zoneReducer from "./zone.reducer";
 import zonesReducer from "./zones.reducer";
 import loadingReducer from "./loading.reducer";
 import alertReducer from "./alert.reducer";
+import routeReducer from "./route.reducer";
+import usersReducer from "./users.reducer";
+import profileReducer from "./profile.reducer";
+import gymsReducer from "./gyms.reducer";
+import sendsReducer from "./sends.reducer";
+import notificationsReducer from "./notifications.reducer";
+
 import { connectRouter } from "connected-react-router";
 
 export default history =>
@@ -21,5 +28,11 @@ export default history =>
     zone: zoneReducer,
     zones: zonesReducer,
     loading: loadingReducer,
-    alert: alertReducer
+    alert: alertReducer,
+    users: usersReducer,
+    route: routeReducer,
+    gyms: gymsReducer,
+    sends: sendsReducer,
+    notifications: notificationsReducer,
+    profile: profileReducer
   });

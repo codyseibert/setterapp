@@ -13,6 +13,9 @@ const User = sequelize.define("user", {
   },
   adminOf: {
     type: Sequelize.INTEGER
+  },
+  gymId: {
+    type: Sequelize.INTEGER
   }
 });
 

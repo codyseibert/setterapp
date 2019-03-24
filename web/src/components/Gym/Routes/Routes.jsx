@@ -1,10 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import getGym from "../../../actions/getGym.action";
 import getGymRoutes from "../../../actions/getGymRoutes.action";
 import { connect } from "react-redux";
 import CreateRoute from "./CreateRoute";
 import { Route } from "react-router";
+import RouteRow from "./RouteRow";
 
 class Routes extends React.Component {
   constructor(props) {
@@ -32,15 +32,12 @@ class Routes extends React.Component {
             <th>Name</th>
             <th>Grade</th>
             <th>Zone</th>
+            <th />
           </tr>
         </thead>
         <tbody>
           {this.props.routes.map(route => (
-            <tr key={route.id}>
-              <td>{route.name}</td>
-              <td>{route.grade}</td>
-              <td>{route.zone}</td>
-            </tr>
+            <RouteRow route={route} key={route.id} />
           ))}
         </tbody>
       </table>

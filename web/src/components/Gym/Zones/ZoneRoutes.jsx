@@ -5,6 +5,10 @@ import { connect } from "react-redux";
 import { Route, Switch } from "react-router";
 import CreateRoute from "../Routes/CreateRoute";
 import Alert from "../../Alert";
+import RouteRow from "../Routes/RouteRow";
+import sendRoute from "../../../actions/sendRoute.action";
+import getSends from "../../../actions/getSends.action";
+import GymRoute from "../GymRoute";
 
 class ZoneRoutes extends React.Component {
   constructor(props) {
@@ -17,6 +21,7 @@ class ZoneRoutes extends React.Component {
   componentDidMount() {
     this.props.getZoneRoutes(parseInt(this.props.match.params.zoneId));
     this.props.getZone(parseInt(this.props.match.params.zoneId));
+    this.props.getSends(parseInt(this.props.user.id));
   }
 
   showCreateRoute() {
@@ -53,7 +58,8 @@ class ZoneRoutes extends React.Component {
                   <tr>
                     <th>Name</th>
                     <th>Grade</th>
-                    <th>Zone</th>
+                    <th />
+                    <th />
                   </tr>
                 </thead>
                 <tbody>
@@ -61,7 +67,44 @@ class ZoneRoutes extends React.Component {
                     <tr key={route.id}>
                       <td>{route.name}</td>
                       <td>{route.grade}</td>
-                      <td>{route.zone}</td>
+                      <td>
+                        <button
+                          className="btn btn-link"
+                          onClick={() =>
+                            this.props.history.push(
+                              `/gyms/${this.props.match.params.gymId}/zones/${
+                                this.props.match.params.zoneId
+                              }/routes/${route.id}`
+                            )
+                          }
+                        >
+                          View
+                        </button>
+                      </td>
+
+                      <td>
+                        {!this.props.sends.find(
+                          send => send.routeId === route.id
+                        ) && (
+                          <button
+                            className="btn btn-outline-primary"
+                            onClick={() => this.props.sendRoute(route.id)}
+                          >
+                            Send
+                          </button>
+                        )}
+
+                        {this.props.sends.find(
+                          send => send.routeId === route.id
+                        ) && (
+                          <button
+                            className="btn btn-outline-danger"
+                            // onClick={() => this.props.sendRoute(route.id)}
+                          >
+                            Unsend
+                          </button>
+                        )}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -107,6 +150,20 @@ class ZoneRoutes extends React.Component {
             )
           }
         />
+
+        <Route
+          exact
+          path={"/gyms/:gymId/zones/:zoneId/routes/:routeId"}
+          render={props =>
+            this.props.zone && (
+              <div>
+                <h1>Zones > {this.props.zone.name} > testing</h1>
+
+                <GymRoute />
+              </div>
+            )
+          }
+        />
       </Switch>
     );
   }
@@ -115,7 +172,9 @@ class ZoneRoutes extends React.Component {
 const mapStateToProps = state => ({
   gym: state.gym,
   routes: state.routes,
-  zone: state.zone
+  zone: state.zone,
+  user: state.user,
+  sends: state.sends
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -124,6 +183,12 @@ const mapDispatchToProps = dispatch => ({
   },
   getZone: zoneId => {
     dispatch(getZone(zoneId));
+  },
+  sendRoute: routeId => {
+    dispatch(sendRoute(routeId));
+  },
+  getSends: userId => {
+    dispatch(getSends(userId));
   }
 });
 

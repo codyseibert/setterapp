@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import setFormKey from "../actions/setFormKey.action";
 import registerUser from "../actions/registerUser.action";
-import PropTypes from "prop-types";
 
 const RegisterClimber = props => (
   <div>

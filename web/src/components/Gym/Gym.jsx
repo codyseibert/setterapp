@@ -1,13 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import getGym from "../../actions/getGym.action";
 import { connect } from "react-redux";
-import { Route } from "react-router";
-import Dashboard from "./Dashboard";
+import { Route, Switch } from "react-router";
+import Home from "./Home";
 import Routes from "./Routes/Routes";
+import GymRoute from "./GymRoute";
 import Climbers from "./Climbers";
 import Zones from "./Zones/Zones";
 import SideNavigation from "./SideNavigation";
+import UserProfile from "./UserProfile";
 
 class Gym extends React.Component {
   componentDidMount() {
@@ -54,31 +55,51 @@ class Gym extends React.Component {
             />
           </div>
           <div className="col-sm-10">
-            <Route
-              exact
-              path={`${this.props.match.url}`}
-              render={props => (
-                <Dashboard gymId={this.props.match.params.gymId} {...props} />
-              )}
-            />
-            <Route
-              path={`${this.props.match.url}/routes`}
-              render={props => (
-                <Routes gymId={this.props.match.params.gymId} {...props} />
-              )}
-            />
-            <Route
-              path={`${this.props.match.url}/zones`}
-              render={props => (
-                <Zones gymId={this.props.match.params.gymId} {...props} />
-              )}
-            />
-            <Route
-              path={`${this.props.match.url}/climbers`}
-              render={props => (
-                <Climbers gymId={this.props.match.params.gymId} {...props} />
-              )}
-            />
+            <Switch>
+              <Route
+                exact
+                path={`${this.props.match.url}`}
+                render={props => (
+                  <Home gymId={this.props.match.params.gymId} {...props} />
+                )}
+              />
+              <Route
+                exact
+                path={`${this.props.match.url}/routes/:routeId`}
+                render={props => (
+                  <GymRoute gymId={this.props.match.params.gymId} {...props} />
+                )}
+              />
+              <Route
+                path={`${this.props.match.url}/routes`}
+                render={props => (
+                  <Routes gymId={this.props.match.params.gymId} {...props} />
+                )}
+              />
+              <Route
+                path={`${this.props.match.url}/zones`}
+                render={props => (
+                  <Zones gymId={this.props.match.params.gymId} {...props} />
+                )}
+              />
+              <Route
+                exact
+                path={`${this.props.match.url}/climbers`}
+                render={props => (
+                  <Climbers gymId={this.props.match.params.gymId} {...props} />
+                )}
+              />
+              <Route
+                exact
+                path={`${this.props.match.url}/climbers/:userId`}
+                render={props => (
+                  <UserProfile
+                    gymId={this.props.match.params.gymId}
+                    {...props}
+                  />
+                )}
+              />
+            </Switch>
           </div>
         </div>
       </div>

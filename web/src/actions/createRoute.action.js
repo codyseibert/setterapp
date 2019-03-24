@@ -27,6 +27,5 @@ export default route => async dispatch => {
     }
   });
 
-  // history.push(`/gyms/${route.gymId}/routes`);
   history.goBack();
 };

@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import setFormKey from "../actions/setFormKey.action";
 import login from "../actions/login.action";
-import PropTypes from "prop-types";
 
 const Login = props => (
   <div>

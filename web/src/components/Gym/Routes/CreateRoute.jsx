@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import createRoute from "../../../actions/createRoute.action";
 import { withRouter } from "react-router";

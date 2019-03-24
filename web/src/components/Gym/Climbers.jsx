@@ -1,32 +1,67 @@
 import React from "react";
-import PropTypes from "prop-types";
-import getGym from "../../actions/getGym.action";
+import getUsers from "../../actions/getUsers.action";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 
-class Climbers extends React.Component {
-  componentDidMount() {
-    this.props.getGym(parseInt(this.props.gymId));
+class Climber extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hover: false
+    };
   }
 
   render() {
-    const renderClimber = card => {
-      const climberImageStyle = {
-        borderRadius: "50%",
-        width: "100%",
-        paddingBottom: "100%",
-        backgroundImage: "url('/me.jpg')",
-        backgroundSize: "cover"
-      };
-      const climberDivStyle = {
-        fontSize: "24px",
-        paddingLeft: "20px",
-        paddingRight: "20px"
-      };
+    const climberImageStyle = {
+      borderRadius: "50%",
+      width: "100%",
+      paddingBottom: "100%",
+      backgroundImage: "url('/me.jpg')",
+      backgroundSize: "cover"
+    };
+    const climberDivStyle = {
+      fontSize: "24px",
+      paddingLeft: "20px",
+      paddingRight: "20px",
+      cursor: "pointer"
+    };
+    return (
+      <div
+        onClick={this.props.onClick}
+        style={climberDivStyle}
+        className="mb-4"
+      >
+        <div style={climberImageStyle} />
+        <div className="text-center">{this.props.climber.name}</div>
+      </div>
+    );
+  }
+}
+
+class Climbers extends React.Component {
+  componentDidMount() {
+    this.props.getUsers(parseInt(this.props.gymId));
+  }
+
+  render() {
+    const renderColumn = (col, cols) => {
       return (
-        <div style={climberDivStyle} className="mb-4">
-          <div style={climberImageStyle} />
-          <div className="text-center">Cody Seibert</div>
-        </div>
+        <React.Fragment>
+          {this.props.users.map(
+            (user, idx) =>
+              idx % cols === col && (
+                <Climber
+                  key={user.id}
+                  onClick={() =>
+                    this.props.history.push(
+                      `/gyms/${this.props.gymId}/climbers/${user.id}`
+                    )
+                  }
+                  climber={user}
+                />
+              )
+          )}
+        </React.Fragment>
       );
     };
 
@@ -38,36 +73,13 @@ class Climbers extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-sm-2">
-            {renderClimber()}
-            {renderClimber()}
-            {renderClimber()}
-          </div>
-          <div className="col-sm-2">
-            {renderClimber()}
-            {renderClimber()}
-            {renderClimber()}
-          </div>
-          <div className="col-sm-2">
-            {renderClimber()}
-            {renderClimber()}
-            {renderClimber()}
-          </div>
-          <div className="col-sm-2">
-            {renderClimber()}
-            {renderClimber()}
-            {renderClimber()}
-          </div>
-          <div className="col-sm-2">
-            {renderClimber()}
-            {renderClimber()}
-            {renderClimber()}
-          </div>
-          <div className="col-sm-2">
-            {renderClimber()}
-            {renderClimber()}
-            {renderClimber()}
-          </div>
+          {/* TODO: this can be dryed up */}
+          <div className="col-sm-2">{renderColumn(0, 6)}</div>
+          <div className="col-sm-2">{renderColumn(1, 6)}</div>
+          <div className="col-sm-2">{renderColumn(2, 6)}</div>
+          <div className="col-sm-2">{renderColumn(3, 6)}</div>
+          <div className="col-sm-2">{renderColumn(4, 6)}</div>
+          <div className="col-sm-2">{renderColumn(5, 6)}</div>
         </div>
       </React.Fragment>
     );
@@ -75,16 +87,19 @@ class Climbers extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  gym: state.gym
+  gym: state.gym,
+  users: state.users
 });
 
 const mapDispatchToProps = dispatch => ({
-  getGym: gymId => {
-    dispatch(getGym(gymId));
+  getUsers: gymId => {
+    dispatch(getUsers(gymId));
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Climbers);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Climbers)
+);

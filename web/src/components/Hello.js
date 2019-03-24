@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { simpleAction } from "../actions/simple.action";
-import PropTypes from "prop-types";
 
 const Hello = props => (
   <div>

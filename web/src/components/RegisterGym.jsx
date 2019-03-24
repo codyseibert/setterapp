@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import setFormKey from "../actions/setFormKey.action";
 import registerGym from "../actions/registerGym.action";
-import PropTypes from "prop-types";
 
 const RegisterGym = props => (
   <div>

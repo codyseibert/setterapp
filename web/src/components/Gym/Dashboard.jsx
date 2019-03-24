@@ -21,20 +21,11 @@ class Dashboard extends React.Component {
         <div className="col-sm">
           <h1>Gym Dashboard {this.props.gym.name}</h1>
         </div>
-        <div className="col-sm">
-          <div style={bannerDiv} />
-        </div>
+        <div className="col-sm" />
       </div>
     );
   }
 }
-
-Dashboard.propTypes = {
-  history: PropTypes.object.isRequired,
-  gymId: PropTypes.string.isRequired,
-  gym: PropTypes.object.isRequired,
-  getGym: PropTypes.func.isRequired
-};
 
 const mapStateToProps = state => ({
   gym: state.gym

@@ -10,10 +10,6 @@ const Hello = props => (
   </div>
 );
 
-Hello.propTypes = {
-  simpleAction: PropTypes.func.isRequired
-};
-
 const mapStateToProps = state => ({
   ...state
 });

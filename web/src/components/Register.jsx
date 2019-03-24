@@ -29,8 +29,4 @@ const Register = props => (
   </div>
 );
 
-Register.propTypes = {
-  history: PropTypes.object.isRequired
-};
-
 export default Register;

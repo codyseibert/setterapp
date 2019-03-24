@@ -82,16 +82,6 @@ class Routes extends React.Component {
   }
 }
 
-Routes.propTypes = {
-  history: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired,
-  gym: PropTypes.object.isRequired,
-  routes: PropTypes.array.isRequired,
-  gymId: PropTypes.string.isRequired,
-  getGymRoutes: PropTypes.func.isRequired,
-  getGym: PropTypes.func.isRequired
-};
-
 const mapStateToProps = state => ({
   gym: state.gym,
   routes: state.routes

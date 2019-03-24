@@ -5,6 +5,9 @@ const sequelize = require("../../sequelize");
 const Zone = sequelize.define("zone", {
   name: {
     type: Sequelize.STRING
+  },
+  gymId: {
+    type: Sequelize.INTEGER
   }
 });
 

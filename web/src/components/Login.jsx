@@ -45,13 +45,6 @@ const Login = props => (
   </div>
 );
 
-Login.propTypes = {
-  history: PropTypes.object.isRequired,
-  form: PropTypes.object.isRequired,
-  setFormKey: PropTypes.func.isRequired,
-  login: PropTypes.func.isRequired
-};
-
 const mapStateToProps = state => ({
   form: state.form
 });

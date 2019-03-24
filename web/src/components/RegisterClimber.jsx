@@ -64,13 +64,6 @@ const RegisterClimber = props => (
   </div>
 );
 
-RegisterClimber.propTypes = {
-  history: PropTypes.object.isRequired,
-  form: PropTypes.object.isRequired,
-  setFormKey: PropTypes.func.isRequired,
-  registerUser: PropTypes.func.isRequired
-};
-
 const mapStateToProps = state => ({
   form: state.form
 });

@@ -8,8 +8,4 @@ const Landing = props => (
   </div>
 );
 
-Landing.propTypes = {
-  history: PropTypes.object.isRequired
-};
-
 export default Landing;

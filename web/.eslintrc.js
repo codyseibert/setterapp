@@ -9,6 +9,7 @@ module.exports = {
   plugins: ['prettier', 'react', 'jsx-a11y', 'cypress', 'jest'],
   rules: {
     'prettier/prettier': 'error',
+    "react/prop-types": 0,
     'arrow-parens': ['error', 'as-needed'],
     'no-underscore-dangle': ['error', { allowAfterThis: true }],
     'jsx-a11y/anchor-is-valid': [

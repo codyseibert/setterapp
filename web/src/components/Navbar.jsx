@@ -58,12 +58,6 @@ const Navbar = props => (
   </nav>
 );
 
-Navbar.propTypes = {
-  history: PropTypes.object.isRequired,
-  token: PropTypes.string,
-  signout: PropTypes.func.isRequired
-};
-
 const mapStateToProps = state => ({
   token: state.token
 });

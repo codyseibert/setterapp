@@ -60,13 +60,6 @@ const RegisterGym = props => (
   </div>
 );
 
-RegisterGym.propTypes = {
-  history: PropTypes.object.isRequired,
-  form: PropTypes.object.isRequired,
-  setFormKey: PropTypes.func.isRequired,
-  registerGym: PropTypes.func.isRequired
-};
-
 const mapStateToProps = state => ({
   form: state.form
 });

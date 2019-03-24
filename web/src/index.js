@@ -9,6 +9,19 @@ import App from "./App";
 import rootReducer from "./reducers/rootReducer";
 import history from "./history";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faIgloo,
+  faSync,
+  faSpinner,
+  faHome,
+  faTh,
+  faRoute,
+  faUsers
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faIgloo, faSync, faSpinner, faHome, faTh, faRoute, faUsers);
+
 const getInitialState = () => {
   const user = JSON.parse(window.localStorage.getItem("user"));
   const token = JSON.parse(window.localStorage.getItem("token"));

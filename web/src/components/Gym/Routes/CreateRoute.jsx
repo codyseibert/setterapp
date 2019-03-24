@@ -2,17 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import createRoute from "../../../actions/createRoute.action";
+import { withRouter } from "react-router";
 
 class CreateRoutes extends React.Component {
-  componentDidMount() {}
   constructor(props) {
     super(props);
     this.state = {
       form: {
-        gymId: this.props.gymId
+        gymId: parseInt(this.props.match.params.gymId),
+        zoneId: parseInt(this.props.match.params.zoneId)
       }
     };
   }
+
+  componentDidMount() {}
 
   setFormValue(options) {
     this.setState({
@@ -107,14 +110,6 @@ class CreateRoutes extends React.Component {
   }
 }
 
-CreateRoutes.propTypes = {
-  history: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired,
-  gym: PropTypes.object.isRequired,
-  gymId: PropTypes.string.isRequired,
-  createRoute: PropTypes.func.isRequired
-};
-
 const mapStateToProps = state => ({
   gym: state.gym
 });
@@ -125,7 +120,9 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateRoutes);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(CreateRoutes)
+);

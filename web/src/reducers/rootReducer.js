@@ -4,6 +4,10 @@ import userReducer from "./user.reducer";
 import gymReducer from "./gym.reducer";
 import tokenReducer from "./token.reducer";
 import routesReducer from "./routes.reducer";
+import zoneReducer from "./zone.reducer";
+import zonesReducer from "./zones.reducer";
+import loadingReducer from "./loading.reducer";
+import alertReducer from "./alert.reducer";
 import { connectRouter } from "connected-react-router";
 
 export default history =>
@@ -13,5 +17,9 @@ export default history =>
     user: userReducer,
     gym: gymReducer,
     token: tokenReducer,
-    routes: routesReducer
+    routes: routesReducer,
+    zone: zoneReducer,
+    zones: zonesReducer,
+    loading: loadingReducer,
+    alert: alertReducer
   });

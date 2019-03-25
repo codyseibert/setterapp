@@ -6,9 +6,11 @@ import { Route, Switch } from "react-router";
 import CreateRoute from "../Routes/CreateRoute";
 import Alert from "../../Alert";
 import RouteRow from "../Routes/RouteRow";
+import unsendRoute from "../../../actions/unsendRoute.action";
 import sendRoute from "../../../actions/sendRoute.action";
 import getSends from "../../../actions/getSends.action";
 import GymRoute from "../GymRoute";
+import LoadingButton from "../../shared/LoadingButton";
 
 class ZoneRoutes extends React.Component {
   constructor(props) {
@@ -86,23 +88,22 @@ class ZoneRoutes extends React.Component {
                         {!this.props.sends.find(
                           send => send.routeId === route.id
                         ) && (
-                          <button
-                            className="btn btn-outline-primary"
+                          <LoadingButton
+                            icon="check"
+                            text="Send"
                             onClick={() => this.props.sendRoute(route.id)}
-                          >
-                            Send
-                          </button>
+                          />
                         )}
 
                         {this.props.sends.find(
                           send => send.routeId === route.id
                         ) && (
-                          <button
-                            className="btn btn-outline-danger"
-                            // onClick={() => this.props.sendRoute(route.id)}
-                          >
-                            Unsend
-                          </button>
+                          <LoadingButton
+                            icon="times"
+                            text="Unsend"
+                            type="danger"
+                            onClick={() => this.props.unsendRoute(route.id)}
+                          />
                         )}
                       </td>
                     </tr>
@@ -189,6 +190,9 @@ const mapDispatchToProps = dispatch => ({
   },
   getSends: userId => {
     dispatch(getSends(userId));
+  },
+  unsendRoute: routeId => {
+    dispatch(unsendRoute(routeId));
   }
 });
 

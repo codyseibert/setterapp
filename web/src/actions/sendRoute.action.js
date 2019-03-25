@@ -1,10 +1,14 @@
-import sendRoute from "../http/sendRoute.http";
+import createSend from "../http/createSend.http";
+import loadingHook from "./helpers/loadingHook";
 
 export default routeId => async (dispatch, getState) => {
   const { user } = getState();
-  const send = await sendRoute({
-    routeId,
-    userId: user.id
+
+  const send = await loadingHook(dispatch, () => {
+    return createSend({
+      routeId,
+      userId: user.id
+    });
   });
 
   dispatch({

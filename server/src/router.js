@@ -14,6 +14,7 @@ module.exports = app => {
 
   app.post("/v1/sends", require("./sends/routes/createSend.route"));
   app.get("/v1/sends", require("./sends/routes/getSends.route"));
+  app.delete("/v1/sends/:sendId", require("./sends/routes/deleteSend.route"));
 
   app.post("/v1/routes", require("./routes/routes/createRoute.route"));
   app.get("/v1/routes", require("./routes/routes/getRoutes.route"));

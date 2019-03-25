@@ -4,8 +4,6 @@ import loadingHook from "./helpers/loadingHook";
 export default gymId => async (dispatch, getState) => {
   const { user } = getState();
 
-  console.log("user", user);
-
   await loadingHook(dispatch, () => {
     return updateUser(user.id, { gymId });
   });

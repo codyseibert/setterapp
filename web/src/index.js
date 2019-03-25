@@ -19,13 +19,17 @@ import {
   faRoute,
   faUsers,
   faSignOutAlt,
-  faSearch
+  faSearch,
+  faTimes,
+  faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   faIgloo,
   faSync,
   faSpinner,
+  faCheck,
+  faTimes,
   faHome,
   faTh,
   faRoute,

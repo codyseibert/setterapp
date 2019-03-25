@@ -4,6 +4,8 @@ export default (state = [], action) => {
       return state.concat(action.payload);
     case "SET_SENDS":
       return action.payload;
+    case "REMOVE_SEND":
+      return state.filter(send => send.id !== action.payload);
     default:
       return state;
   }

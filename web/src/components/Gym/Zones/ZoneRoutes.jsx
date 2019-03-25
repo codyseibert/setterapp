@@ -11,6 +11,7 @@ import sendRoute from "../../../actions/sendRoute.action";
 import getSends from "../../../actions/getSends.action";
 import GymRoute from "../GymRoute";
 import LoadingButton from "../../shared/LoadingButton";
+import SendButton from "../../shared/SendButton";
 
 class ZoneRoutes extends React.Component {
   constructor(props) {
@@ -85,26 +86,7 @@ class ZoneRoutes extends React.Component {
                       </td>
 
                       <td>
-                        {!this.props.sends.find(
-                          send => send.routeId === route.id
-                        ) && (
-                          <LoadingButton
-                            icon="check"
-                            text="Send"
-                            onClick={() => this.props.sendRoute(route.id)}
-                          />
-                        )}
-
-                        {this.props.sends.find(
-                          send => send.routeId === route.id
-                        ) && (
-                          <LoadingButton
-                            icon="times"
-                            text="Unsend"
-                            type="danger"
-                            onClick={() => this.props.unsendRoute(route.id)}
-                          />
-                        )}
+                        <SendButton route={route} />
                       </td>
                     </tr>
                   ))}

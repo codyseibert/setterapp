@@ -37,7 +37,23 @@ class Routes extends React.Component {
         </thead>
         <tbody>
           {this.props.routes.map(route => (
-            <RouteRow route={route} key={route.id} />
+            <tr key={route.id}>
+              <td>{route.name}</td>
+              <td>{route.grade}</td>
+              <td>{route.zone}</td>
+              <td>
+                <button
+                  className="btn btn-link"
+                  onClick={() =>
+                    this.props.history.push(
+                      `/gyms/${this.props.gymId}/routes/${route.id}`
+                    )
+                  }
+                >
+                  View
+                </button>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>

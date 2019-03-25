@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingButton from "../shared/LoadingButton";
+import SendButton from "../shared/SendButton";
 
 class GymRoute extends React.Component {
   componentDidMount() {
@@ -26,6 +27,7 @@ class GymRoute extends React.Component {
 
         <div className="col-sm-8">
           <h1>{this.props.route.name}</h1>
+          <SendButton route={this.props.route} />
         </div>
       </div>
     );

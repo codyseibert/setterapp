@@ -34,6 +34,10 @@ module.exports = app => {
   app.get("/v1/comments", require("./comments/routes/getComments.route"));
   app.post("/v1/comments", require("./comments/routes/createComments.route"));
 
+  app.get("/v1/likes", require("./likes/routes/getLikes.route"));
+  app.delete("/v1/likes/:likeId", require("./likes/routes/deleteLike.route"));
+  app.post("/v1/likes", require("./likes/routes/createLike.route"));
+
   app.post(
     "/v1/gym-admins",
     require("./gym-admins/routes/addUserAsGymAdmin.route")

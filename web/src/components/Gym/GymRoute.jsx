@@ -1,9 +1,11 @@
 import React from "react";
 import getRoute from "../../actions/getRoute.action";
+import createLike from "../../actions/createLike.action";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingButton from "../shared/LoadingButton";
+import LikeButton from "../shared/LikeButton";
 import SendButton from "../shared/SendButton";
 import Comments from "./Routes/Comments";
 
@@ -29,11 +31,7 @@ class GymRoute extends React.Component {
         <div className="col-sm-8">
           <h1>{this.props.route.name}</h1>
           <SendButton route={this.props.route} />
-          <LoadingButton
-            text="Like"
-            icon={["far", "heart"]}
-            onClick={() => {}}
-          />
+          <LikeButton route={this.props.route} />
           <Comments routeId={this.props.match.params.routeId} />
         </div>
       </div>
@@ -52,6 +50,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getRoute: routeId => {
     dispatch(getRoute(routeId));
+  },
+  createLike: routeId => {
+    dispatch(createLike(routeId));
   }
 });
 

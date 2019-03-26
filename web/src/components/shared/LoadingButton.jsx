@@ -8,7 +8,7 @@ class LoadingButton extends React.Component {
     return (
       <button
         disabled={this.props.loading}
-        className={`btn btn-outline-${this.props.type || "primary"} mb-2`}
+        className={`btn btn-outline-${this.props.type || "primary"} mb-2 mr-2`}
         onClick={this.props.onClick}
       >
         {this.props.loading && (

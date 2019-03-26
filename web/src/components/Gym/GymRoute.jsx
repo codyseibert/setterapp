@@ -5,6 +5,7 @@ import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingButton from "../shared/LoadingButton";
 import SendButton from "../shared/SendButton";
+import Comments from "./Routes/Comments";
 
 class GymRoute extends React.Component {
   componentDidMount() {
@@ -28,6 +29,12 @@ class GymRoute extends React.Component {
         <div className="col-sm-8">
           <h1>{this.props.route.name}</h1>
           <SendButton route={this.props.route} />
+          <LoadingButton
+            text="Like"
+            icon={["far", "heart"]}
+            onClick={() => {}}
+          />
+          <Comments routeId={this.props.match.params.routeId} />
         </div>
       </div>
     );

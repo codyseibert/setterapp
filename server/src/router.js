@@ -31,6 +31,9 @@ module.exports = app => {
 
   app.post("/v1/login", require("./auth/routes/login.route"));
 
+  app.get("/v1/comments", require("./comments/routes/getComments.route"));
+  app.post("/v1/comments", require("./comments/routes/createComments.route"));
+
   app.post(
     "/v1/gym-admins",
     require("./gym-admins/routes/addUserAsGymAdmin.route")

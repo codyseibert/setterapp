@@ -14,6 +14,7 @@ import {
   faIgloo,
   faSync,
   faSpinner,
+  faPaperPlane,
   faHome,
   faTh,
   faRoute,
@@ -21,17 +22,22 @@ import {
   faSignOutAlt,
   faSearch,
   faTimes,
+  faHeart,
   faCheck
 } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeartFar } from "@fortawesome/free-regular-svg-icons";
 
 library.add(
   faIgloo,
   faSync,
   faSpinner,
+  faPaperPlane,
   faCheck,
   faTimes,
+  farHeartFar,
   faHome,
   faTh,
+  faHeart,
   faRoute,
   faUsers,
   faSignOutAlt,

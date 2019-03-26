@@ -12,6 +12,7 @@ import routeReducer from "./route.reducer";
 import usersReducer from "./users.reducer";
 import profileReducer from "./profile.reducer";
 import gymsReducer from "./gyms.reducer";
+import commentsReducer from "./comments.reducer";
 import sendsReducer from "./sends.reducer";
 import notificationsReducer from "./notifications.reducer";
 
@@ -32,6 +33,7 @@ export default history =>
     users: usersReducer,
     route: routeReducer,
     gyms: gymsReducer,
+    comments: commentsReducer,
     sends: sendsReducer,
     notifications: notificationsReducer,
     profile: profileReducer

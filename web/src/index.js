@@ -18,6 +18,7 @@ import {
   faHome,
   faTh,
   faRoute,
+  faChartBar,
   faUsers,
   faSignOutAlt,
   faSearch,
@@ -31,6 +32,8 @@ import { faHeart as farHeartFar } from "@fortawesome/free-regular-svg-icons";
 library.add(
   faIgloo,
   faSync,
+  faChartBar,
+
   faSpinner,
   faPaperPlane,
   faCheck,

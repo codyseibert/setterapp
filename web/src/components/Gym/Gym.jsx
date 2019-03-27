@@ -9,6 +9,7 @@ import Climbers from "./Climbers";
 import Zones from "./Zones/Zones";
 import SideNavigation from "./SideNavigation";
 import UserProfile from "./UserProfile";
+import Analytics from "./Analytics";
 
 class Gym extends React.Component {
   componentDidMount() {
@@ -97,6 +98,13 @@ class Gym extends React.Component {
                     gymId={this.props.match.params.gymId}
                     {...props}
                   />
+                )}
+              />
+              <Route
+                exact
+                path={`${this.props.match.url}/analytics`}
+                render={props => (
+                  <Analytics gymId={this.props.match.params.gymId} {...props} />
                 )}
               />
             </Switch>

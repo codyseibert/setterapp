@@ -23,10 +23,49 @@ module.exports = () => {
     gymId: 1
   });
 
+  createZone({
+    name: "Wall B",
+    gymId: 1
+  });
+
   createRoute({
     name: "Route A",
     zoneId: 1,
-    gymId: 1
+    gymId: 1,
+    grade: "v8",
+    zone: "Gray Wall",
+    color: "Orange",
+    type: "bouldering"
+  });
+
+  createRoute({
+    name: "Cool Beans",
+    zoneId: 1,
+    gymId: 1,
+    grade: "5.11a",
+    zone: "2",
+    type: "lead",
+    color: "Blue"
+  });
+
+  createRoute({
+    name: "Cool Beans",
+    zoneId: 1,
+    gymId: 1,
+    grade: "V11",
+    zone: "2",
+    type: "bouldering",
+    color: "Blue"
+  });
+
+  createRoute({
+    name: "Route A",
+    zoneId: 2,
+    gymId: 1,
+    grade: "5.10",
+    type: "toprope",
+    zone: "Gray Wall",
+    color: "Pink"
   });
 
   createUser({

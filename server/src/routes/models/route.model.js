@@ -8,7 +8,8 @@ const Route = sequelize.define("route", {
   type: { type: Sequelize.STRING },
   grade: { type: Sequelize.STRING },
   color: { type: Sequelize.STRING },
-  archived: { type: Sequelize.BOOLEAN }
+  zone: { type: Sequelize.STRING },
+  archived: { type: Sequelize.BOOLEAN, defaultValue: false }
 });
 
 module.exports = Route;

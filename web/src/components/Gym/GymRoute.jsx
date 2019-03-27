@@ -8,6 +8,7 @@ import LoadingButton from "../shared/LoadingButton";
 import LikeButton from "../shared/LikeButton";
 import SendButton from "../shared/SendButton";
 import Comments from "./Routes/Comments";
+import ArchiveRouteButton from "../shared/ArchiveRouteButton";
 
 class GymRoute extends React.Component {
   componentDidMount() {
@@ -30,8 +31,17 @@ class GymRoute extends React.Component {
 
         <div className="col-sm-8">
           <h1>{this.props.route.name}</h1>
-          <SendButton route={this.props.route} />
-          <LikeButton route={this.props.route} />
+          {this.props.route.archived && <small>Archived</small>}
+
+          {!this.props.route.archived && (
+            <SendButton route={this.props.route} />
+          )}
+          {!this.props.route.archived && (
+            <LikeButton route={this.props.route} />
+          )}
+          {!this.props.route.archived && (
+            <ArchiveRouteButton route={this.props.route} />
+          )}
           <Comments routeId={this.props.match.params.routeId} />
         </div>
       </div>

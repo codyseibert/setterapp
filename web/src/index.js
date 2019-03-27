@@ -22,6 +22,7 @@ import {
   faSignOutAlt,
   faSearch,
   faTimes,
+  faArchive,
   faHeart,
   faCheck
 } from "@fortawesome/free-solid-svg-icons";
@@ -33,6 +34,7 @@ library.add(
   faSpinner,
   faPaperPlane,
   faCheck,
+  faArchive,
   faTimes,
   farHeartFar,
   faHome,

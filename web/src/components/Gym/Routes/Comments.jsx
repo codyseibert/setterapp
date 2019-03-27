@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import moment from "moment";
 import LoadingButton from "../../shared/LoadingButton";
+import deleteComment from "../../../actions/deleteComment.action";
 
 class Comments extends React.Component {
   constructor(props) {
@@ -52,8 +53,19 @@ class Comments extends React.Component {
                   <div style={imageDiv} />
                   <div>{comment.name}</div>
                 </div>
-                <div className="col-sm-10">
+                <div className="col-sm-8">
                   <p className="card-text">{comment.message}</p>
+                </div>
+
+                <div className="col-sm-2">
+                  <LoadingButton
+                    text="Delete"
+                    icon="times"
+                    type="danger"
+                    onClick={() => {
+                      this.props.deleteComment(comment.id);
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -102,6 +114,9 @@ const mapDispatchToProps = dispatch => ({
   },
   createComment: message => {
     dispatch(createComment(message));
+  },
+  deleteComment: commentId => {
+    dispatch(deleteComment(commentId));
   }
 });
 

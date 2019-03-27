@@ -3,6 +3,7 @@ const createZone = require("./zones/interactors/createZone.interactor");
 const createRoute = require("./routes/interactors/createRoute.interactor");
 const createUser = require("./users/interactors/createUser.interactor");
 const createNotification = require("./notifications/interactors/createNotification.interactor");
+const createComment = require("./comments/interactors/createComment.interactor");
 
 module.exports = () => {
   createGym({
@@ -38,5 +39,11 @@ module.exports = () => {
   createNotification({
     gymId: 1,
     message: "The gym will be closing at 7PM this coming Friday."
+  });
+
+  createComment({
+    routeId: 1,
+    message: "yolo",
+    userId: 1
   });
 };

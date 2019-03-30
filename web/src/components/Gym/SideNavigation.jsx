@@ -76,6 +76,12 @@ class SideNavigation extends React.Component {
         route: `/gyms/${this.props.match.params.gymId}/climbers`,
         text: "Climbers",
         icon: "users"
+      },
+
+      {
+        route: `/gyms/${this.props.match.params.gymId}/setters`,
+        text: "Setters",
+        icon: "tape"
       }
     ];
 

@@ -44,23 +44,21 @@ class Climbers extends React.Component {
   }
 
   render() {
-    const renderColumn = (col, cols) => {
+    const renderClimbers = () => {
       return (
         <React.Fragment>
-          {this.props.users.map(
-            (user, idx) =>
-              idx % cols === col && (
-                <Climber
-                  key={user.id}
-                  onClick={() =>
-                    this.props.history.push(
-                      `/gyms/${this.props.gymId}/climbers/${user.id}`
-                    )
-                  }
-                  climber={user}
-                />
-              )
-          )}
+          {this.props.users.map(user => (
+            <div key={user.id} className="col-md-2">
+              <Climber
+                onClick={() =>
+                  this.props.history.push(
+                    `/gyms/${this.props.gymId}/climbers/${user.id}`
+                  )
+                }
+                climber={user}
+              />
+            </div>
+          ))}
         </React.Fragment>
       );
     };
@@ -72,15 +70,7 @@ class Climbers extends React.Component {
             <h1>Climbers</h1>
           </div>
         </div>
-        <div className="row">
-          {/* TODO: this can be dryed up */}
-          <div className="col-sm-2">{renderColumn(0, 6)}</div>
-          <div className="col-sm-2">{renderColumn(1, 6)}</div>
-          <div className="col-sm-2">{renderColumn(2, 6)}</div>
-          <div className="col-sm-2">{renderColumn(3, 6)}</div>
-          <div className="col-sm-2">{renderColumn(4, 6)}</div>
-          <div className="col-sm-2">{renderColumn(5, 6)}</div>
-        </div>
+        <div className="row">{renderClimbers()}</div>
       </React.Fragment>
     );
   }

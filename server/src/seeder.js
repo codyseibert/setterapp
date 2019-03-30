@@ -4,6 +4,7 @@ const createRoute = require("./routes/interactors/createRoute.interactor");
 const createUser = require("./users/interactors/createUser.interactor");
 const createNotification = require("./notifications/interactors/createNotification.interactor");
 const createComment = require("./comments/interactors/createComment.interactor");
+const createSetter = require("./setters/interactors/createSetter.interactor");
 
 module.exports = () => {
   createGym({
@@ -84,5 +85,10 @@ module.exports = () => {
     routeId: 1,
     message: "yolo",
     userId: 1
+  });
+
+  createSetter({
+    name: "Mark Mercer",
+    gymId: 1
   });
 };

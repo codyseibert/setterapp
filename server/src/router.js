@@ -20,6 +20,14 @@ module.exports = app => {
   app.get("/v1/sends", require("./sends/routes/getSends.route"));
   app.delete("/v1/sends/:sendId", require("./sends/routes/deleteSend.route"));
 
+  app.get("/v1/setters", require("./setters/routes/getSetters.route"));
+  app.get("/v1/setters/:setterId", require("./setters/routes/getSetter.route"));
+  app.post("/v1/setters", require("./setters/routes/createSetter.route"));
+  app.patch(
+    "/v1/setters/:setterId",
+    require("./setters/routes/updateSetter.route")
+  );
+
   app.post("/v1/routes", require("./routes/routes/createRoute.route"));
   app.get("/v1/routes", require("./routes/routes/getRoutes.route"));
   app.get("/v1/routes/:routeId", require("./routes/routes/getRoute.route"));

@@ -11,10 +11,14 @@ exports.handler = async (req, res, fun) => {
     const result = await fun();
     res.status(200).json(result);
   } catch (err) {
-    res.status(400).send(err.message);
+    res.status(400).send(err.stack);
   }
 };
 
 exports.toInt = (params, key) => {
   if (params[key]) params[key] = parseInt(params[key]);
+};
+
+exports.toBoolean = (params, key) => {
+  if (params[key]) params[key] = params[key] === "true";
 };

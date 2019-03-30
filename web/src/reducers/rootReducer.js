@@ -11,11 +11,13 @@ import alertReducer from "./alert.reducer";
 import routeReducer from "./route.reducer";
 import usersReducer from "./users.reducer";
 import profileReducer from "./profile.reducer";
+import settersReducer from "./setters.reducer";
 import gymsReducer from "./gyms.reducer";
 import likesReducer from "./likes.reducer";
 import commentsReducer from "./comments.reducer";
 import sendsReducer from "./sends.reducer";
 import notificationsReducer from "./notifications.reducer";
+import setterReducer from "./setter.reducer";
 
 import { connectRouter } from "connected-react-router";
 
@@ -38,5 +40,7 @@ export default history =>
     comments: commentsReducer,
     sends: sendsReducer,
     notifications: notificationsReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    setters: settersReducer,
+    setter: setterReducer
   });

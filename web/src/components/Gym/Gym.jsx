@@ -9,8 +9,10 @@ import Climbers from "./Climbers";
 import Zones from "./Zones/Zones";
 import SideNavigation from "./SideNavigation";
 import UserProfile from "./UserProfile";
+import Setters from "./Setters";
 import Analytics from "./Analytics";
-
+import CreateSetter from "./CreateSetter";
+import Setter from "./Setter";
 class Gym extends React.Component {
   componentDidMount() {
     this.props.getGym(parseInt(this.props.match.params.gymId));
@@ -105,6 +107,40 @@ class Gym extends React.Component {
                 path={`${this.props.match.url}/analytics`}
                 render={props => (
                   <Analytics gymId={this.props.match.params.gymId} {...props} />
+                )}
+              />
+              <Route
+                exact
+                path={`${this.props.match.url}/setters`}
+                render={props => (
+                  <Setters gymId={this.props.match.params.gymId} {...props} />
+                )}
+              />
+              <Route
+                exact
+                path={`${this.props.match.url}/setters/create`}
+                render={props => (
+                  <CreateSetter
+                    gymId={this.props.match.params.gymId}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path={`${this.props.match.url}/setters/create`}
+                render={props => (
+                  <CreateSetter
+                    gymId={this.props.match.params.gymId}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path={`${this.props.match.url}/setters/:setterId`}
+                render={props => (
+                  <Setter gymId={this.props.match.params.gymId} {...props} />
                 )}
               />
             </Switch>

@@ -5,6 +5,7 @@ const createUser = require("./users/interactors/createUser.interactor");
 const createNotification = require("./notifications/interactors/createNotification.interactor");
 const createComment = require("./comments/interactors/createComment.interactor");
 const createSetter = require("./setters/interactors/createSetter.interactor");
+const createSend = require("./sends/interactors/createSend.interactor");
 
 module.exports = () => {
   createGym({
@@ -27,6 +28,51 @@ module.exports = () => {
   createZone({
     name: "Wall B",
     gymId: 1
+  });
+
+  createSend({
+    userId: 1,
+    routeId: 1,
+    routeName: "gg",
+    userName: "Cody Seibert",
+    grade: "v8",
+    zoneName: "gray wall"
+  });
+
+  createSend({
+    userId: 2,
+    routeId: 1,
+    routeName: "gg",
+    userName: "Cody Seibert",
+    grade: "v8",
+    zoneName: "gray wall"
+  });
+
+  createSend({
+    userId: 3,
+    routeId: 1,
+    routeName: "gg",
+    userName: "Cody Seibert",
+    grade: "v8",
+    zoneName: "gray wall"
+  });
+
+  createSend({
+    userId: 4,
+    routeId: 1,
+    routeName: "gg",
+    userName: "Cody Seibert",
+    grade: "v8",
+    zoneName: "gray wall"
+  });
+
+  createSend({
+    userId: 5,
+    routeId: 1,
+    routeName: "gg",
+    userName: "Cody Seibert",
+    grade: "v8",
+    zoneName: "gray wall"
   });
 
   createRoute({

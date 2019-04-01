@@ -1,13 +1,35 @@
 import React from "react";
 import getUser from "../../actions/getUser.action";
+import getSends from "../../actions/getSends.action";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingButton from "../shared/LoadingButton";
+import moment from "moment";
 
-class Home extends React.Component {
+class UserProfile extends React.Component {
   componentDidMount() {
     this.props.getUser(parseInt(this.props.match.params.userId));
+    this.props.getSends(parseInt(this.props.match.params.userId));
+  }
+
+  renderSends() {
+    return this.props.sends.map(send => (
+      <div className="card" key={send.id}>
+        <div className="card-body">
+          <p className="card-text">
+            Sent {send.routeName || send.routeId} ({send.grade}) on zonee{" "}
+            {send.zoneName}
+          </p>
+        </div>
+
+        <div className="card-footer">
+          <small className="text-muted">
+            {moment(send.createdAt).format("LLL")}
+          </small>
+        </div>
+      </div>
+    ));
   }
 
   render() {
@@ -20,14 +42,22 @@ class Home extends React.Component {
     };
 
     return (
-      <div className="row">
-        <div className="col-sm-2">
-          <div style={imageDiv} />
+      <React.Fragment>
+        <div className="row">
+          <div className="col-sm-2">
+            <div style={imageDiv} />
+          </div>
+          <div className="col-sm-8">
+            <h1>{this.props.profile.name}</h1>
+          </div>
         </div>
-        <div className="col-sm-8">
-          <h1>{this.props.profile.name}</h1>
+        <div className="row">
+          <div className="col-sm-6">
+            <h1>Latest Sends</h1>
+            {this.renderSends()}
+          </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
@@ -35,6 +65,7 @@ class Home extends React.Component {
 const mapStateToProps = state => ({
   gym: state.gym,
   user: state.user,
+  sends: state.sends,
   profile: state.profile,
   loading: state.loading
 });
@@ -42,6 +73,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getUser: userId => {
     dispatch(getUser(userId));
+  },
+  getSends: userId => {
+    dispatch(getSends(userId));
   }
 });
 
@@ -49,5 +83,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Home)
+  )(UserProfile)
 );

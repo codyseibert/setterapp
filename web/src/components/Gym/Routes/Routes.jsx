@@ -70,8 +70,6 @@ class Routes extends React.Component {
           path={`${this.props.match.url}`}
           render={() => (
             <div>
-              {this.renderRoutesTable()}
-
               <button
                 className="btn btn-outline-primary mb-2"
                 onClick={() =>
@@ -82,6 +80,7 @@ class Routes extends React.Component {
               >
                 Create Route
               </button>
+              {this.renderRoutesTable()}
             </div>
           )}
         />

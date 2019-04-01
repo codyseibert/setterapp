@@ -9,7 +9,9 @@ class SendButton extends React.Component {
     return (
       <React.Fragment>
         {!this.props.sends.find(
-          send => send.routeId === this.props.route.id
+          send =>
+            send.routeId === this.props.route.id &&
+            send.userId === this.props.user.id
         ) && (
           <LoadingButton
             icon="check"
@@ -19,7 +21,9 @@ class SendButton extends React.Component {
         )}
 
         {this.props.sends.find(
-          send => send.routeId === this.props.route.id
+          send =>
+            send.routeId === this.props.route.id &&
+            send.userId === this.props.user.id
         ) && (
           <LoadingButton
             icon="times"
@@ -34,7 +38,8 @@ class SendButton extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  sends: state.sends
+  sends: state.sends,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

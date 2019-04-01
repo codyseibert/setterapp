@@ -5,7 +5,7 @@ export default (state = [], action) => {
     case "SET_SENDS":
       return action.payload;
     case "REMOVE_SEND":
-      return state.filter(send => send.id !== action.payload);
+      return state.filter(send => send.userId !== action.payload);
     default:
       return state;
   }

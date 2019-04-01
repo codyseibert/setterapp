@@ -3,6 +3,7 @@ import loadingHook from "./helpers/loadingHook";
 
 export default routeId => async (dispatch, getState) => {
   const { sends } = getState();
+  const { user } = getState();
 
   const send = sends.find(send => send.routeId === routeId);
 
@@ -12,6 +13,6 @@ export default routeId => async (dispatch, getState) => {
 
   dispatch({
     type: "REMOVE_SEND",
-    payload: send.id
+    payload: user.id
   });
 };
